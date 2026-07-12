@@ -1,0 +1,29 @@
+<h1>Available Courses</h1>
+
+<div *ngIf="isLoading">
+
+    <h2>Loading Courses...</h2>
+
+</div>
+
+<div *ngIf="!isLoading">
+
+    <div *ngIf="courses.length > 0; else noCourses">
+
+        <app-course-card
+
+            *ngFor="let course of courses; trackBy: trackByCourseId"
+
+            [course]="course">
+
+        </app-course-card>
+
+    </div>
+
+</div>
+
+<ng-template #noCourses>
+
+    <h2>No Courses Available</h2>
+
+</ng-template>

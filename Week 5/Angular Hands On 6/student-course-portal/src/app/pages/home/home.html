@@ -1,0 +1,41 @@
+<h1>{{ portalName }}</h1>
+
+<h2>
+
+Welcome to the Student Course Portal
+
+</h2>
+
+<p>
+
+Total Available Courses :
+
+<strong>
+
+{{ totalCourses }}
+
+</strong>
+
+</p>
+
+<br>
+
+<input
+
+type="text"
+
+[(ngModel)]="searchTerm"
+
+placeholder="Search Courses">
+
+<p>
+
+Searching for :
+
+<strong>
+
+{{ searchTerm }}
+
+</strong>
+
+</p>

@@ -1,0 +1,196 @@
+<div class="container">
+
+    <h2>Reactive Enrollment Form</h2>
+
+    <form
+        [formGroup]="enrollmentForm"
+        (ngSubmit)="onSubmit()">
+
+        <!-- Student Name -->
+
+        <div class="form-group">
+
+            <label>Student Name</label>
+
+            <input
+                type="text"
+                formControlName="studentName">
+
+            <small
+                *ngIf="studentName?.touched && studentName?.errors?.['required']">
+
+                Student Name is required.
+
+            </small>
+
+            <small
+                *ngIf="studentName?.touched && studentName?.errors?.['minlength']">
+
+                Minimum 3 characters required.
+
+            </small>
+
+        </div>
+
+        <!-- Email -->
+
+        <div class="form-group">
+
+            <label>Email</label>
+
+            <input
+                type="email"
+                formControlName="studentEmail">
+
+            <small
+                *ngIf="studentEmail?.touched && studentEmail?.errors?.['required']">
+
+                Email is required.
+
+            </small>
+
+            <small
+                *ngIf="studentEmail?.touched && studentEmail?.errors?.['email']">
+
+                Invalid email.
+
+            </small>
+
+            <small
+                *ngIf="studentEmail?.pending">
+
+                Checking email...
+
+            </small>
+
+            <small
+                *ngIf="studentEmail?.errors?.['emailTaken']">
+
+                Email already taken.
+
+            </small>
+
+        </div>
+
+        <!-- Course Code -->
+
+        <div class="form-group">
+
+            <label>Course Code</label>
+
+            <input
+                type="text"
+                formControlName="courseId">
+
+            <small
+                *ngIf="courseId?.touched && courseId?.errors?.['required']">
+
+                Course Code is required.
+
+            </small>
+
+            <small
+                *ngIf="courseId?.errors?.['invalidCourseCode']">
+
+                Course code starting with XX is not allowed.
+
+            </small>
+
+        </div>
+
+        <!-- Semester -->
+
+        <div class="form-group">
+
+            <label>Preferred Semester</label>
+
+            <select formControlName="preferredSemester">
+
+                <option value="Odd">Odd</option>
+
+                <option value="Even">Even</option>
+
+            </select>
+
+        </div>
+
+        <!-- Terms -->
+
+        <div class="form-group checkbox">
+
+            <input
+                type="checkbox"
+                formControlName="agreeToTerms">
+
+            <label>I Agree to Terms and Conditions</label>
+
+        </div>
+
+        <!-- Additional Courses -->
+
+        <div formArrayName="additionalCourses">
+
+            <h3>Additional Courses</h3>
+
+            <div
+                *ngFor="let course of additionalCourses.controls; let i=index">
+
+                <input
+                    [formControlName]="i"
+                    placeholder="Additional Course">
+
+                <button
+                    type="button"
+                    (click)="removeCourse(i)">
+
+                    Remove
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <br>
+
+        <button
+            type="button"
+            (click)="addCourse()">
+
+            Add Course
+
+        </button>
+
+        <br><br>
+
+        <button
+            type="submit"
+            [disabled]="enrollmentForm.invalid">
+
+            Submit
+
+        </button>
+
+        <button
+            type="button"
+            (click)="reset()">
+
+            Reset
+
+        </button>
+
+    </form>
+
+    <div
+        class="success"
+        *ngIf="submitted">
+
+        <h3>
+
+            Enrollment Submitted Successfully!
+
+        </h3>
+
+    </div>
+
+</div>
