@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@ngrx/effects": "^21.1.1",
+    "@ngrx/entity": "^21.1.1",
+    "@ngrx/store": "^21.1.1",
+    "@ngrx/store-devtools": "^21.1.1"
+  }
+}

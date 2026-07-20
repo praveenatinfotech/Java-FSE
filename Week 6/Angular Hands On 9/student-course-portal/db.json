@@ -1,0 +1,41 @@
+{
+  "courses": [
+    {
+      "id": 1,
+      "name": "Angular",
+      "code": "ANG101",
+      "credits": 4,
+      "gradeStatus": "passed"
+    },
+    {
+      "id": 2,
+      "name": "Java",
+      "code": "JAVA201",
+      "credits": 3,
+      "gradeStatus": "pending"
+    },
+    {
+      "id": 3,
+      "name": "Spring Boot",
+      "code": "SB301",
+      "credits": 4,
+      "gradeStatus": "passed"
+    },
+    {
+      "id": 4,
+      "name": "MySQL",
+      "code": "MYSQL101",
+      "credits": 3,
+      "gradeStatus": "failed"
+    },
+    {
+      "id": 5,
+      "name": "React",
+      "code": "REACT101",
+      "credits": 4,
+      "gradeStatus": "pending"
+    }
+  ],
+  "students": [],
+  "enrollments": []
+}
